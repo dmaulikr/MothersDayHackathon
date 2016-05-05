@@ -16,8 +16,16 @@ NSString * const kCollectionViewCellIdentifier = @"cellReuseIdentifier";
 @property (strong, nonatomic) NSArray * giphyResults;
 @property (weak, nonatomic) IBOutlet UICollectionView * collectionView;
 
+@property (nonatomic, strong) NSMutableArray *gifArrayKeyword1;
+@property (nonatomic, strong) NSArray *gifArrayKeyword2;
+@property (nonatomic, strong) NSArray *gifArrayKeyword3;
+@property (nonatomic, strong) NSArray *gifArrayKeyword4;
+@property (nonatomic, strong) NSArray *gifArrayKeyword5;
 
+@property (nonatomic) NSMutableArray *keywordArray;
 
+// Sharing array
+@property (nonatomic, strong) NSMutableArray *selectedItemsArray;
 @end
 
 @implementation AXCViewController
@@ -32,75 +40,75 @@ NSString * const kCollectionViewCellIdentifier = @"cellReuseIdentifier";
    
     // see the methods below for usage examples
 //    [self searchForFrogs];
-    
-    NSLog(@"%@ %@ %@ %@ %@", self.keyword1, self.keyword2, self.keyword3, self.keyword4, self.keyword5);
+    self.selectedItemsArray = [[NSMutableArray alloc] init];
+    self.keywordArray = [NSMutableArray arrayWithObjects:self.keyword1, self.keyword2, self.keyword3, self.keyword4, self.keyword5, nil];
+    self.gifArrayKeyword1 = [[NSMutableArray alloc] init];
+   [self searchForKeyword:nil];
 }
+
 
 -(void)searchForKeyword:(NSString *)keyword
 {
-    if (keyword) {
+//     NSLog(@"searchForKeyword: %ld", (unsigned long)self.keywordArray.count);
+    
+    for (NSString *word in self.keywordArray) {
         
-        __unused NSURLSessionDataTask * task = [AXCGiphy searchGiphyWithTerm:keyword limit:10 offset:0 completion:^(NSArray *results, NSError *error) {
-            self.giphyResults = results;
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                [self.collectionView reloadData];
+        if (word) {
+            
+            __unused NSURLSessionDataTask * task = [AXCGiphy searchGiphyWithTerm:word limit:5 offset:0 completion:^(NSArray *results, NSError *error) {
+                
+//                NSLog(@"Result: %ld", results.count);
+                
+                [self.gifArrayKeyword1 addObjectsFromArray:results];
+//                self.gifArrayKeyword1 = results;
+
+//                self.giphyResults = results;
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    [self.collectionView reloadData];
+                }];
             }];
-        }];
+            
+            [task resume];
+        }
     }
     
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    AXCCollectionViewCell *cell = (AXCCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    if(!cell.isSelected){
+        [self.selectedItemsArray addObject:cell.gifUrl];
+        cell.isSelected = YES;
+        cell.selectedLabel.hidden = NO;
+    }else {
+        [self.selectedItemsArray removeObject:cell.gifUrl];
+        cell.isSelected = NO;
+        cell.selectedLabel.hidden = YES;
+    }
+}
+- (IBAction)SendToMomButtonTapped:(id)sender {
+    // grab an item we want to share
+    NSMutableArray *itemsToPost = [NSMutableArray new];
+    //NSString *message = @"Here are are some of your favorite things";
+    //[itemsToPost addObject:message];
+    for (NSURL *url in self.selectedItemsArray) {
+        NSData *gifData = [NSData dataWithContentsOfURL:url];
+        
+        [itemsToPost addObject:gifData];
+        
+    }
     
+    // build an activity view controller
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToPost applicationActivities:nil];
+    
+    // exclude several items
+    NSArray *excluded = @[UIActivityTypePostToFacebook, UIActivityTypePostToTwitter, UIActivityTypeAirDrop, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypeAddToReadingList, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll ];
+    activityVC.excludedActivityTypes = excluded;
+    
+    // and present it
+    [self presentViewController:activityVC animated:YES completion:nil];
 }
 
-
-- (void) getTranslation
-{
-    [AXCGiphy giphyTranslationForTerm:@"frog" completion:^(AXCGiphy *result, NSError *error) {
-        self.giphyResults = @[result];
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self.collectionView reloadData];
-        }];
-    }];
-}
-
-- (void) getSingleGIF
-{
-    [AXCGiphy gifForID: @"dc6zaTOxFJmzC" completion:^(AXCGiphy *result, NSError *error) {
-        self.giphyResults = @[result];
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self.collectionView reloadData];
-        }];
-    }];
-}
-
--(void) getSpecificGIFs
-{
-    [AXCGiphy gifsForIDs:@[ @"dc6zaTOxFJmzC", @"feqkVgjJpYtjy"] completion:^(NSArray *results, NSError *error) {
-        self.giphyResults = results;
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self.collectionView reloadData];
-        }];
-    }];
-}
-
-- (void) getTrending
-{
-    [AXCGiphy trendingGIFsWithlimit:10 offset:0 completion:^(NSArray *results, NSError *error) {
-        self.giphyResults = results;
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self.collectionView reloadData];
-        }];
-    }];
-}
-
-- (void) searchForFrogs:(NSString *)keyword
-{
-    __unused NSURLSessionDataTask * task = [AXCGiphy searchGiphyWithTerm:keyword limit:10 offset:0 completion:^(NSArray *results, NSError *error) {
-        self.giphyResults = results;
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self.collectionView reloadData];
-        }];
-    }];
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -115,18 +123,19 @@ NSString * const kCollectionViewCellIdentifier = @"cellReuseIdentifier";
 }
 - (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.giphyResults.count;
+    return self.gifArrayKeyword1.count;
 }
 - (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     AXCCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCollectionViewCellIdentifier forIndexPath:indexPath];
-    AXCGiphy * gif = self.giphyResults[indexPath.item];
+    AXCGiphy * gif = self.gifArrayKeyword1[indexPath.item];
     
     NSURLRequest * request = [NSURLRequest requestWithURL:gif.originalImage.url];
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         UIImage * image = [UIImage imageWithData:data];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             cell.imageView.image = image;
+            cell.gifUrl = gif.originalImage.url;
         }];
     }] resume];
     

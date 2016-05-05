@@ -25,6 +25,12 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		6358062E081B442FA3F0F2F0 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1382AFB728DD41B9A0DEF79B /* libPods-Tests.a */; };
+		6B447B7A1CDBE41500F33E30 /* GFMlaunch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B447B751CDBE41500F33E30 /* GFMlaunch.jpg */; };
+		6B447B7B1CDBE41500F33E30 /* gifsForMom.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B447B761CDBE41500F33E30 /* gifsForMom.jpg */; };
+		6B447B7C1CDBE41500F33E30 /* kawaii.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6B447B771CDBE41500F33E30 /* kawaii.gif */; };
+		6B447B7D1CDBE41500F33E30 /* rosesBottom.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B447B781CDBE41500F33E30 /* rosesBottom.jpg */; };
+		6B447B7E1CDBE41500F33E30 /* rosesTop.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B447B791CDBE41500F33E30 /* rosesTop.jpg */; };
+		6B447B801CDBF19500F33E30 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B447B7F1CDBF19500F33E30 /* Launch Screen.storyboard */; };
 		C8B72B1E1CDBBC800089DC5D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B72B1D1CDBBC800089DC5D /* HomeViewController.m */; };
 		E0FE834ED0C04979BFC10D46 /* libPods-AXCGiphy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F6616BECB04D119BFBD04B /* libPods-AXCGiphy.a */; };
 /* End PBXBuildFile section */
@@ -67,6 +73,12 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		65F6616BECB04D119BFBD04B /* libPods-AXCGiphy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AXCGiphy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B447B751CDBE41500F33E30 /* GFMlaunch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GFMlaunch.jpg; sourceTree = "<group>"; };
+		6B447B761CDBE41500F33E30 /* gifsForMom.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gifsForMom.jpg; sourceTree = "<group>"; };
+		6B447B771CDBE41500F33E30 /* kawaii.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = kawaii.gif; sourceTree = "<group>"; };
+		6B447B781CDBE41500F33E30 /* rosesBottom.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rosesBottom.jpg; sourceTree = "<group>"; };
+		6B447B791CDBE41500F33E30 /* rosesTop.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rosesTop.jpg; sourceTree = "<group>"; };
+		6B447B7F1CDBF19500F33E30 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		81C84A0080FC4DACB6B6873B /* Giphy-iOS.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "Giphy-iOS.podspec"; path = "../Giphy-iOS.podspec"; sourceTree = "<group>"; };
 		C8B72B1C1CDBBC800089DC5D /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		C8B72B1D1CDBBC800089DC5D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
@@ -151,6 +163,7 @@
 				6003F5A5195388D20070C39A /* AXCViewController.h */,
 				6003F5A6195388D20070C39A /* AXCViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
+				6B447B7F1CDBF19500F33E30 /* Launch Screen.storyboard */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
 			path = AXCGiphy;
@@ -159,6 +172,11 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6B447B751CDBE41500F33E30 /* GFMlaunch.jpg */,
+				6B447B761CDBE41500F33E30 /* gifsForMom.jpg */,
+				6B447B771CDBE41500F33E30 /* kawaii.gif */,
+				6B447B781CDBE41500F33E30 /* rosesBottom.jpg */,
+				6B447B791CDBE41500F33E30 /* rosesTop.jpg */,
 				6003F595195388D20070C39A /* AXCGiphy-Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
@@ -278,10 +296,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F5A4195388D20070C39A /* Main_iPad.storyboard in Resources */,
+				6B447B7A1CDBE41500F33E30 /* GFMlaunch.jpg in Resources */,
 				0C66F8C519A3CEE100A39956 /* kermit.gif in Resources */,
+				6B447B7D1CDBE41500F33E30 /* rosesBottom.jpg in Resources */,
+				6B447B7E1CDBE41500F33E30 /* rosesTop.jpg in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				6B447B801CDBF19500F33E30 /* Launch Screen.storyboard in Resources */,
+				6B447B7C1CDBE41500F33E30 /* kawaii.gif in Resources */,
 				6003F5A1195388D20070C39A /* Main_iPhone.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				6B447B7B1CDBE41500F33E30 /* gifsForMom.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

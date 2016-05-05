@@ -10,4 +10,8 @@
 
 @interface AXCCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView * imageView;
+@property (nonatomic, strong) NSURL *gifUrl;
+@property BOOL isSelected;
+@property (weak, nonatomic) IBOutlet UILabel *selectedLabel;
+
 @end

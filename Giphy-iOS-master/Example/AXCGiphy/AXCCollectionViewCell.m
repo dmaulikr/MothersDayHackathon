@@ -23,6 +23,8 @@
 {
     [super prepareForReuse];
     self.imageView.image = nil;
+    self.gifUrl = nil;
+    self.isSelected = NO;
 }
 
 /*

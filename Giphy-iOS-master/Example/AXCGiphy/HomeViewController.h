@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeViewController : UIViewController
+@interface HomeViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *text1;
 @property (weak, nonatomic) IBOutlet UITextField *text2;
@@ -22,7 +22,5 @@
 @property (weak, nonatomic)  NSString *string3;
 @property (weak, nonatomic)  NSString *string4;
 @property (weak, nonatomic)  NSString *string5;
-
-
 
 @end
