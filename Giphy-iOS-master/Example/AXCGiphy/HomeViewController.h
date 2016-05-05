@@ -19,7 +19,6 @@
 
 @property (weak, nonatomic) NSString *string1;
 @property (weak, nonatomic) NSString *string2;
-
 @property (weak, nonatomic)  NSString *string3;
 @property (weak, nonatomic)  NSString *string4;
 @property (weak, nonatomic)  NSString *string5;
