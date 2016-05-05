@@ -25,6 +25,7 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		6358062E081B442FA3F0F2F0 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1382AFB728DD41B9A0DEF79B /* libPods-Tests.a */; };
+		C8B72B1E1CDBBC800089DC5D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B72B1D1CDBBC800089DC5D /* HomeViewController.m */; };
 		E0FE834ED0C04979BFC10D46 /* libPods-AXCGiphy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F6616BECB04D119BFBD04B /* libPods-AXCGiphy.a */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,8 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		65F6616BECB04D119BFBD04B /* libPods-AXCGiphy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AXCGiphy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81C84A0080FC4DACB6B6873B /* Giphy-iOS.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "Giphy-iOS.podspec"; path = "../Giphy-iOS.podspec"; sourceTree = "<group>"; };
+		C8B72B1C1CDBBC800089DC5D /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		C8B72B1D1CDBBC800089DC5D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		DB9E290E2BD2499BA1B52CFE /* Pods-AXCGiphy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AXCGiphy.xcconfig"; path = "Pods/Pods-AXCGiphy.xcconfig"; sourceTree = "<group>"; };
 		DCDFC1D898B648F5B2FBFCD1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		FEA614BC82104E5687416D27 /* Pods-Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.xcconfig"; path = "Pods/Pods-Tests.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 				6003F59D195388D20070C39A /* AXCAppDelegate.m */,
 				0C66F8C119A3C47500A39956 /* AXCCollectionViewCell.h */,
 				0C66F8C219A3C47500A39956 /* AXCCollectionViewCell.m */,
+				C8B72B1C1CDBBC800089DC5D /* HomeViewController.h */,
+				C8B72B1D1CDBBC800089DC5D /* HomeViewController.m */,
 				6003F59F195388D20070C39A /* Main_iPhone.storyboard */,
 				6003F5A2195388D20070C39A /* Main_iPad.storyboard */,
 				6003F5A5195388D20070C39A /* AXCViewController.h */,
@@ -361,6 +366,7 @@
 				6003F59E195388D20070C39A /* AXCAppDelegate.m in Sources */,
 				0C66F8C319A3C47500A39956 /* AXCCollectionViewCell.m in Sources */,
 				6003F5A7195388D20070C39A /* AXCViewController.m in Sources */,
+				C8B72B1E1CDBBC800089DC5D /* HomeViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
