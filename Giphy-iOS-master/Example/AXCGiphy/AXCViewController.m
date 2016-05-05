@@ -15,6 +15,19 @@ NSString * const kCollectionViewCellIdentifier = @"cellReuseIdentifier";
 @interface AXCViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (strong, nonatomic) NSArray * giphyResults;
 @property (weak, nonatomic) IBOutlet UICollectionView * collectionView;
+@property (nonatomic, strong) NSString *keyword1;
+@property (nonatomic, strong) NSString *keyword2;
+@property (nonatomic, strong) NSString *keyword3;
+@property (nonatomic, strong) NSString *keyword4;
+@property (nonatomic, strong) NSString *keyword5;
+
+@property (nonatomic, strong) NSMutableArray *gifArrayKeyword1;
+@property (nonatomic, strong) NSMutableArray *gifArrayKeyword2;
+@property (nonatomic, strong) NSMutableArray *gifArrayKeyword3;
+@property (nonatomic, strong) NSMutableArray *gifArrayKeyword4;
+@property (nonatomic, strong) NSMutableArray *gifArrayKeyword5;
+
+
 @end
 
 @implementation AXCViewController
@@ -28,8 +41,24 @@ NSString * const kCollectionViewCellIdentifier = @"cellReuseIdentifier";
     [AXCGiphy setGiphyAPIKey:kGiphyPublicAPIKey];
    
     // see the methods below for usage examples
-    [self searchForFrogs];
+//    [self searchForFrogs];
 }
+
+-(void)searchForKeyword:(NSString *)keyword
+{
+    if (keyword) {
+        
+        __unused NSURLSessionDataTask * task = [AXCGiphy searchGiphyWithTerm:keyword limit:10 offset:0 completion:^(NSArray *results, NSError *error) {
+            self.giphyResults = results;
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [self.collectionView reloadData];
+            }];
+        }];
+    }
+    
+    
+}
+
 
 - (void) getTranslation
 {
@@ -71,9 +100,9 @@ NSString * const kCollectionViewCellIdentifier = @"cellReuseIdentifier";
     }];
 }
 
-- (void) searchForFrogs
+- (void) searchForFrogs:(NSString *)keyword
 {
-    NSURLSessionDataTask * task = [AXCGiphy searchGiphyWithTerm:@"frogs" limit:10 offset:0 completion:^(NSArray *results, NSError *error) {
+    __unused NSURLSessionDataTask * task = [AXCGiphy searchGiphyWithTerm:keyword limit:10 offset:0 completion:^(NSArray *results, NSError *error) {
         self.giphyResults = results;
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [self.collectionView reloadData];

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -20,25 +21,31 @@
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5Kh-XB-gIj">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bRL-7c-b1o">
-                                    <size key="itemSize" width="320" height="320"/>
+                                    <size key="itemSize" width="320" height="249"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellReuseIdentifier" id="qMY-ce-nO8" customClass="AXCCollectionViewCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="249"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="249"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wx4-zn-6xW">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wx4-zn-6xW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="249"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="wx4-zn-6xW" firstAttribute="top" secondItem="qMY-ce-nO8" secondAttribute="topMargin" id="1H0-Ay-iOM"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="wx4-zn-6xW" secondAttribute="bottom" id="Mws-Jt-NUK"/>
+                                            <constraint firstItem="wx4-zn-6xW" firstAttribute="leading" secondItem="qMY-ce-nO8" secondAttribute="leadingMargin" constant="-8" id="NaW-ca-KKc"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="wx4-zn-6xW" secondAttribute="trailing" constant="-8" id="cec-b6-eeJ"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="wx4-zn-6xW" id="F0I-D6-rbU"/>
                                         </connections>
@@ -58,6 +65,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="283" y="361"/>
         </scene>
     </scenes>
 </document>
